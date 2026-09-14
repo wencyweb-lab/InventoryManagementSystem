@@ -1,0 +1,2 @@
+import { ReportPage } from '@/components/reports/ReportPage'
+export default function Page() { return <ReportPage title="Supplier Report" description="Supplier purchases, paid amounts, and balances" type="suppliers" rowLinkBase="/dashboard/reports/suppliers" fields={[{ key: 'name', label: 'Supplier' }, { key: 'phone', label: 'Phone' }, { key: 'purchases', label: 'Purchases', format: 'number' }, { key: 'total', label: 'Total', format: 'currency' }, { key: 'paid', label: 'Paid', format: 'currency' }, { key: 'due', label: 'Due', format: 'currency' }]} /> }

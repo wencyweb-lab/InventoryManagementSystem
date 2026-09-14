@@ -1,0 +1,2 @@
+import { ReportPage } from '@/components/reports/ReportPage'
+export default function Page() { return <ReportPage title="Quantity Alerts" description="Products at or below their warehouse alert threshold" type="stock_alerts" fields={[{ key: 'productCode', label: 'Code' }, { key: 'productName', label: 'Product' }, { key: 'warehouseName', label: 'Warehouse' }, { key: 'currentQty', label: 'Current', format: 'number' }, { key: 'alertQty', label: 'Alert at', format: 'number' }]} /> }

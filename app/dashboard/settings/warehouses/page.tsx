@@ -1,0 +1,2 @@
+import { SimpleResourcePage } from '@/components/settings/SimpleResourcePage'
+export default function Page() { return <SimpleResourcePage title="Warehouses" description="Inventory storage locations" endpoint="/api/warehouses" fields={[{ name: 'name', label: 'Name', required: true }, { name: 'city', label: 'City' }, { name: 'country', label: 'Country' }, { name: 'phone', label: 'Phone' }, { name: 'email', label: 'Email', type: 'email' }, { name: 'zip', label: 'Postal code' }]} /> }

@@ -1,0 +1,2 @@
+import { ReportPage } from '@/components/reports/ReportPage'
+export default function Page() { return <ReportPage title="Sales Report" description="Sales documents by date" type="sales" fields={[{ key: 'Ref', label: 'Reference' }, { key: 'date', label: 'Date', format: 'date' }, { key: 'client_id.name', label: 'Customer' }, { key: 'warehouse_id.name', label: 'Warehouse' }, { key: 'status', label: 'Status' }, { key: 'GrandTotal', label: 'Total', format: 'currency' }]} /> }

@@ -1,0 +1,2 @@
+import { ReportPage } from '@/components/reports/ReportPage'
+export default function Page() { return <ReportPage title="Purchase Payments" description="Payments sent to suppliers" type="payments_purchases" fields={[{ key: 'Ref', label: 'Payment ref' }, { key: 'parentRef', label: 'Purchase ref' }, { key: 'date', label: 'Date', format: 'date' }, { key: 'payment_method', label: 'Method' }, { key: 'montant', label: 'Amount', format: 'currency' }, { key: 'user_id.name', label: 'User' }]} /> }

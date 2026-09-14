@@ -1,0 +1,2 @@
+import { ReportPage } from '@/components/reports/ReportPage'
+export default function Page() { return <ReportPage title="Sale Return Payments" description="Refunds sent for customer returns" type="payments_sale_returns" fields={[{ key: 'Ref', label: 'Payment ref' }, { key: 'parentRef', label: 'Return ref' }, { key: 'date', label: 'Date', format: 'date' }, { key: 'payment_method', label: 'Method' }, { key: 'montant', label: 'Amount', format: 'currency' }]} /> }

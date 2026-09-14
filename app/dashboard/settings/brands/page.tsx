@@ -1,0 +1,2 @@
+import { SimpleResourcePage } from '@/components/settings/SimpleResourcePage'
+export default function Page() { return <SimpleResourcePage title="Brands" description="Product manufacturers and brands" endpoint="/api/brands" fields={[{ name: 'name', label: 'Name', required: true }, { name: 'description', label: 'Description', type: 'textarea', defaultValue: '' }, { name: 'image', label: 'Image path', defaultValue: '' }]} /> }

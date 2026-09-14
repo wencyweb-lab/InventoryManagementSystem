@@ -1,0 +1,2 @@
+import { ReportPage } from '@/components/reports/ReportPage'
+export default function Page() { return <ReportPage title="Customer Report" description="Customer sales, paid amounts, and balances" type="customers" rowLinkBase="/dashboard/reports/customers" fields={[{ key: 'name', label: 'Customer' }, { key: 'phone', label: 'Phone' }, { key: 'sales', label: 'Sales', format: 'number' }, { key: 'total', label: 'Total', format: 'currency' }, { key: 'paid', label: 'Paid', format: 'currency' }, { key: 'due', label: 'Due', format: 'currency' }]} /> }
