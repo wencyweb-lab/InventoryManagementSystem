@@ -18,7 +18,12 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null
 
-        await dbConnect()
+        try {
+          await dbConnect()
+        } catch {
+          console.error('Login failed: MongoDB is unavailable. Check MONGODB_URI and start the database.')
+          throw new Error('Database unavailable')
+        }
         const user = await User.findOne({ email: credentials.email.trim().toLowerCase(), deletedAt: null })
           .populate({ path: 'roles', match: { statut: true, deletedAt: null }, populate: { path: 'permissions' } })
 

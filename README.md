@@ -6,6 +6,10 @@ The application shell and screen design system are adapted from the bundled Admi
 
 ## Local setup
 
+On this Windows checkout, a native MongoDB server is installed under the ignored `storage/mongodb/server` directory. Start it with `npm run db:start`, then run `npm run dev`. The database files persist in `storage/mongodb/data`; the server uses port 27017 and replica set `rs0`. Use `mongodb://127.0.0.1:27017/inventory_management?replicaSet=rs0&directConnection=true` for `MONGODB_URI` in `.env.local`. The command starts the server in the background and can be run again after a restart. This setup does not require Docker.
+
+For a separate Docker installation:
+
 1. Copy `.env.example` to `.env.local` and replace `NEXTAUTH_SECRET`.
 2. Start a transaction-capable MongoDB instance:
 

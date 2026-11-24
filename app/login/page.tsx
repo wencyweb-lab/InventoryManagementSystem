@@ -28,22 +28,29 @@ export default function LoginPage() {
 
   const onSubmit = async (data: LoginForm) => {
     setLoading(true)
-    const result = await signIn('credentials', {
-      email: data.email,
-      password: data.password,
-      redirect: false,
-    })
-    setLoading(false)
+    try {
+      const result = await signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      })
 
-    if (result?.error) {
-      if (result.error === 'Account deactivated') {
+      if (result?.error === 'Account deactivated') {
         toast.error('Your account has been deactivated. Contact administrator.')
-      } else {
+      } else if (result?.error === 'Database unavailable') {
+        toast.error('Database unavailable. Start MongoDB and try again.')
+      } else if (result?.error) {
         toast.error('Invalid email or password.')
+      } else if (result?.ok) {
+        router.push('/dashboard')
+        router.refresh()
+      } else {
+        toast.error('Unable to sign in. Please try again.')
       }
-    } else {
-      router.push('/dashboard')
-      router.refresh()
+    } catch {
+      toast.error('Unable to reach the server. Please try again.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -62,7 +69,7 @@ export default function LoginPage() {
 
         <div className="mt-6 px-6">
           <p className="mb-5 text-sm text-muted-foreground">Use your assigned account or the development administrator.</p>
-          <Button type="button" variant="outline" className="mb-6 w-full" onClick={() => { setValue('email', 'admin@example.com'); setValue('password', 'password'); }}>Fill administrator credentials</Button>
+          <Button type="button" variant="outline" className="mb-6 w-full" onClick={() => { setValue('email', 'admin@example.com'); setValue('password', '123456'); }}>Fill administrator credentials</Button>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Email */}
             <div>

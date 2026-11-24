@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "db:start": "tsx scripts/start-local-mongo.ts",
     "dev:webpack": "next dev --webpack",
     "build": "next build",
     "typecheck": "tsc --noEmit",
